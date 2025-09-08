@@ -3,6 +3,9 @@ class Node:
     def __init__(self, value):
         self.val = value
         self.next = None
+        
+        def __str__(self):
+            return str(self.val)
 
 class CircularLinkedList:
     def __init__(self, val):
@@ -25,6 +28,18 @@ class CircularLinkedList:
             
         self.length += 1
         
+        
+    def prepend(self, val):
+        new_node = Node(val)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+            new_node.next = new_node
+        new_node.next = self.head
+        self.head = new_node
+        self.tail.next = new_node
+        
+        self.length += 1
     def __str__(self):
         temp = self.head
         result = ""
@@ -39,18 +54,21 @@ class CircularLinkedList:
         return result
             
     
-    def a(self, val):
-        new_node = Node(val)
-        if self.length == 0:
-            self.head = new_node
-            self.tail = new_node
-            new_node.next = new_node
-        else:
-            self.tail.next = new_node
-            new_node = self.head
-            self.tail = new_node
+    # def a(self, val):
+    #     new_node = Node(val)
+    #     if self.length == 0:
+    #         self.head = new_node
+    #         self.tail = new_node
+    #         new_node.next = new_node
+    #     else:
+    #         self.tail.next = new_node
+    #         new_node = self.head
+    #         self.tail = new_node
 c = CircularLinkedList(1)
 c.append(22)
 for i in range(4):
     c.append(randint(i, 6))
+    
+c.prepend("jhay")
+print(c.tail.next)
 print(c)
