@@ -32,6 +32,8 @@ class StackLinkedList:
     @property
     def is_empty(self):
         return self.length == 0
+    
+    
 stack = StackLinkedList()
 stack.push(1)
 stack.push(12)
