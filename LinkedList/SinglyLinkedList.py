@@ -9,6 +9,9 @@ class Node:
     def __str__(self):
         return str(self.value)
     
+    def __repr__(self):
+        return str(self.value)
+    
     
     
 class LinkedList:
@@ -118,6 +121,7 @@ class LinkedList:
         self.length -= 1
         return popped_node      
     
+
     def __del__(self):
         self.head = None 
         self.tail = None
@@ -176,12 +180,28 @@ linked1.append(Node(20))
 linked1.append(Node(22))
 linked1.append(Node(21))
 linked1.append(Node(23))
+linked1.append(Node(23))
+linked1.append(Node(23))
+linked1.append(Node(23))
+linked1.append(Node(23))
+linked1.append(Node(23))
 
 linked1[2] = 999
-print(linked1[2])
 
-# linked1.insert(Node(69), 3)
-# linked1.traverse()
-print(linked1.search(20))
-print(linked1)
 
+
+def stringify(head):
+    return "{} -> {}".format(head.data, stringify(head.next))
+
+def remove_duplicates(ll):
+    current_node = ll.head
+    unique = []
+    
+    while current_node.next:
+        if current_node not in unique:
+            unique.append(current_node)
+        current_node = current_node.next
+    return unique
+
+x = remove_duplicates(linked1)
+print(x)
