@@ -172,7 +172,28 @@ class LinkedList:
             temp = temp.next
         print(res)
         return res
+    
+    def __add__(self, other):
+        if self.length != other.length:
+            raise "Length of two or not the same!"
         
+        linkedlist1 = self.head
+        linkedlist2 = other.head
+        s = 0
+        new_linked_list = self
+           
+        while linked1 or linkedlist2:
+            result = s
+            if linkedlist1:
+                result += linkedlist1.value
+                linked1 = linked1.next
+                
+            if linkedlist2:
+                result += linkedlist2.value
+                linkedlist2 = linkedlist2.next
+            
+            new_linked_list.append(result)
+        return new_linked_list
             
             
 linked1 = LinkedList()
