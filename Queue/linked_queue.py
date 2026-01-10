@@ -1,14 +1,16 @@
 from typing import Sequence
+
+
 class Node:
     def __init__(self, val):
         self.val = val
-        self.next 
+        self.next = None
     
     def __str__(self):
         return str(self.val)
         
         
-class LinkedList(Sequence):
+class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
@@ -45,7 +47,7 @@ class Queue:
             self.tail = None        
         else:
             self.queue.head = self.queue.head.next
-            
+        return temp_node
     def peek(self):
         if self.is_empty():
             return "No item"
